@@ -1,0 +1,57 @@
+<%- include('../Includes/header.ejs')%>
+<link rel="stylesheet" type="text/css" href="/CSS/shoppage.css">
+<title><%=title%></title>
+</head>
+<body>
+<%- include('../Includes/nav.ejs')%>
+
+<center>
+   <h1 style="color: white;">View Products</h1>
+  
+       <div class="container mx-auto mt-4">
+          
+               
+                    <div class="col-md-4">
+                        <div class="card" style="width: 50rem; margin-left: -150px;" >
+                            <img src="/<%= shopValue.ProductImage%>" class="img" alt="...">
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">
+                                        <%=shopValue.ProductName%>
+                                    </h1>
+                                    <h3 class="card-title"><i class="fas fa-rupee-sign"></i>
+                                        <%=shopValue.ProductPrice%>
+                                    </h3>
+                                </center>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <%=shopValue.ProductDescription%>.
+                                </h6>
+                               <div class="star">
+                              
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="container">
+                            <form method="post" action="/postaddtocart">
+
+                            <input type="hidden" name="pid" value="<%= shopValue._id%>">  
+                               
+                        <button  class="btn mr-2" type="submit"> <i class="fas fa-cart-plus"> </i>  Add In Cart</button>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken%>"> 
+                        </form><br>
+                            <a href="#"  class="btn mr-2"> <i class="fas fa-shopping-bag"> </i> Buy Now</a>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+          
+        </div>
+
+</center>
+
+
+
+<%- include('../Includes/footer.ejs')%>

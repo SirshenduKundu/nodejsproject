@@ -1,0 +1,49 @@
+<%- include('../Includes/header.ejs') %>
+<title><%=title%></title>
+<link rel="stylesheet" type="text/css" href="/CSS/detailsproducts.css">
+</head>
+<body class="viewbody">
+<%- include('../Includes/nav.ejs') %>
+<center>
+<div class="dropdown">
+  <button class="dropbtn">Sort By Order</button>
+  <div class="dropdown-content">
+    <a href="/Admin/DetailsProduct/asc"><button type="button" class="btn btn-success">A to Z</button></a>
+    <a href="/Admin/DetailsProduct/dsc"><button type="button" class="btn btn-primary">Z to A</button></a>
+  
+  </div>
+</div>
+</center>
+<% if(AllValues.length>0){%>
+<table class="table table-hover">
+  <tr>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Description</th>
+            <th>Product Image</th>
+            <th >Actions</th>
+          </tr>
+     
+        <% for(let data of AllValues){%>
+           <tr>
+            <td><%=data.ProductName%></td>
+            <td><%=data.ProductPrice%></td>
+            <td><%=data.ProductDescription%></td>
+            <td><%=data.ProductImage%></td>
+            <td  class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/edititem/<%= data._id%>"><button type="submit" class="btn btn-outline-warning" ><i class="fas fa-edit"></i> Edit</button></a>
+            <a href="/deleteitem/<%= data._id%>"><button type="submit" class="btn btn-outline-danger" ><i class="fas fa-trash-alt"></i> Delete</button></a>
+            
+            </td>
+          </tr>
+       
+         <% }%>
+      </table>
+    <%}else{%>
+<h1>data not found</h1>
+   <%}%>
+
+
+
+
+<%- include('../Includes/footer.ejs') %>

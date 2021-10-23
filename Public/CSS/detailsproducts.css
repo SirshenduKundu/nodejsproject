@@ -1,0 +1,87 @@
+.viewbody{
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+}
+table.table-hover{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    background-color: #ffffff;
+     border: 2px solid black; 
+     }
+
+table.table-hover th
+{
+background-color: rgb(0, 174, 255);
+text-align: center;
+}
+/* .btn{
+  border: 1px solid;
+    border-image-slice: 1;
+   
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source:  var(--gradient) !important; 
+    text-decoration: none;
+    transition: all .4s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color:rgb(255, 0, 0);
+    
+   
+  
+  
+}
+.btn:hover, .btnn:focus {
+  background: var(--gradient) !important;
+-webkit-background-clip: none !important;
+-webkit-text-fill-color: rgb(5, 83, 253) !important;
+border: 5px solid rgb(0, 203, 253) !important; 
+box-shadow: #222 1px 0 10px;
+text-decoration: underline;
+
+} */
+
+
+.dropbtn {
+    border: 3px solid;
+    background-color: #E79702;
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    font-size: 16px;
+   margin-top: 15%;
+   font-weight: bold;
+   font-size: 150%;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #6e6e6e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #ff0101;}
+
+
+
+
+  

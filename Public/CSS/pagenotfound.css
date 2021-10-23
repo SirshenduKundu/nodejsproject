@@ -1,0 +1,8 @@
+body { background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');}
+
+.error-template {padding: 40px 15px;text-align: center; color: white;}
+.error-actions {margin-top:15px;margin-bottom:15px;color: rgb(255, 255, 255);}
+.error-actions .btn { margin-right:10px; color: rgb(255, 255, 255); background-color: rgb(228, 43, 43);border: 3px; }
+.error-actions .btn:hover{
+   background-color: rgb(58, 56, 56);
+}

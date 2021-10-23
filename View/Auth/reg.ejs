@@ -1,0 +1,44 @@
+<%- include('../Includes/header.ejs')%>
+<link rel="stylesheet" type="text/css" href="/CSS/reg.css">
+<title><%=title%></title>
+</head>
+
+
+<body>
+<%- include('../Includes/nav.ejs')%> 
+
+<div class="container">
+    <div class="login-container">
+             
+              <h1 style="color: white;">Registration</h1>
+              <div class="avatar">
+                <img src="https://thumbs.dreamstime.com/b/vectorial-blank-face-avatar-7046081.jpg" height="100px" width="100px">
+              </div>
+             
+              <div class="form-box">
+                  <form  method="POST" action="/postregistration">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                    <input id="fname" name="f_name" type="text" placeholder="Enter Your First Name">
+                    <input name="l_name" type="text" placeholder="Enter Your Last Name">
+                      <input name="email" type="email" placeholder="Enter Your Email">
+                      <input type="password" name="password" placeholder="Enter Your Password">
+
+                      <% if(error.length>0){%>
+                       <% for(let a of error){%>
+                             <h5 style="color: red;"><%= a.msg%></h5>
+                        <%}%>
+                      <%}%>
+
+
+                      <button class="btn btn-info btn-block login" type="submit">Register</button>
+                   
+                  </form>
+              </div><br>
+              <h4 style="color: white;"> Have Already An Account? <a href="/login"> Log In Here</a></h4>
+          </div>
+          
+  </div>
+  
+
+
+<%- include('../Includes/footer.ejs')%>

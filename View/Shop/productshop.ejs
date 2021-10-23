@@ -1,0 +1,82 @@
+<%- include("../Includes/header.ejs")%>
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/shoppage.css">
+    </head>
+         <body>
+        <%- include("../Includes/nav.ejs")%>
+           <br>
+              
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <form class="card card-sm" method="POST" action="/postsearch">
+                            <div class="card-body row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <i class="fas fa-search h4 text-body"></i>
+                                </div>
+                                <!--end of col-->
+                                <div class="col">
+                                    <input class="form-control form-control-lg form-control-borderless" type="search" name="search"
+                                        placeholder="Search Product Topics or Keywords">
+                                </div>
+                                <!--end of col-->
+                                <div class="col-auto">
+                                    <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                </div>
+                                <!--end of col-->
+                            </div>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                        </form>
+                      </div>
+                      <!--end of col-->
+                     
+                        <div class="dropdown">
+                          <button class="dropbtn">Sort By Order</button>
+                          <div class="dropdown-content">
+                            <a href="/shop/productshop/asc"><button type="button" class="btn btn-success">A to Z</button></a>
+                            <a href="/shop/productshop/dsc"><button type="button" class="btn btn-primary">Z to A</button></a>
+                          
+                          </div>
+                        </div>
+                      </div>
+            <% if(shopValue.length>0){%>
+                <div class="container mx-auto mt-4">
+                    <div class="row">
+                        <% for(let data of shopValue){%>
+                            <div class="col-md-4">
+                                <div class="card" style="width: 20rem;">
+                                    <img src="/<%= data.ProductImage%>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <center>
+                                            <h1 class="card-title">
+                                                <%=data.ProductName%>
+                                            </h1>
+                                            <h3 class="card-title"><i class="fas fa-rupee-sign"></i>
+                                                <%=data.ProductPrice%>
+                                            </h3>
+                                        </center>
+                                        <h6 class="card-subtitle mb-2 text-muted">
+                                            <%=data.ProductDescription%>.
+                                        </h6>
+                                       <div class="star">
+                                      
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                       <center> <a href="/viewdetails/<%=data._id%>" class="btn mr-2"> View Details</a></center>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <%}%>
+                    </div>
+                </div>
+                <%}else{%>
+                    <h1>Data Not Found</h1>
+                    <%}%>
+
+
+                        <%- include("../Includes/footer.ejs")%>

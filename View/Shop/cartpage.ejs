@@ -1,0 +1,63 @@
+
+    
+<%- include('../Includes/header.ejs') %>
+<title><%= title%></title>
+<link rel="stylesheet" type="text/css" href="/CSS/detailsproducts.css">
+</head>
+<body class="viewbody">
+    <%- include('../Includes/nav.ejs')%>
+
+ 
+    <% if(cart_value.length>0){%>
+      <section id="hero">
+        <div class="hero-container">
+            <div class="hero-logo">
+                <h1 class="font-weight-bold">Cart Products</h1>
+            </div>
+            </div>
+    </section>
+
+        <table class="table table-hover">
+           
+            <tr>
+              <th>Product Image</th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Product Quantity</th>
+              <th>Subtotal</th>
+              <th>Actions</th>
+            </tr>
+       
+           <% for(let data of cart_value){%>
+             <tr>
+                <td><img src="<%=data.cart[0].ProductImage%>" style="width:50%;height: 50px;"></td>
+                 <td><center><%=data.cart[0].ProductName%></center></td>
+              <td><center>₹<%=data.cart[0].ProductPrice%></center></td>
+              <td> <center><%=data.quantity%></center></td>
+              <td><center>₹<%=data.cart[0].ProductPrice * data.quantity%></center></td>
+              <td><center>
+        <a  href="/deletecart/<%=data._id%>"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button></a>
+        <!-- <form method="POST" action="/postorder">
+          <input type="hidden" name="oid" value="<%=cart_value._id%>">
+          <input type="hidden" name="_csrf" value="<%= csrfToken%>">  -->
+           <a href="/order"> <button type="submit" style="background-color:crimson;font-weight:bold;text-transform: uppercase;font-size:18px;" class="btn btn-info btn-lg">Proceed To Buy</button></a>
+          <!-- </form>  -->
+          </center></td>
+             </tr>
+           <%}%>
+        </table>
+        
+        
+    
+     
+    
+     <%}else{%>
+      <h2 style="text-align: center;font-weight: bolder;color: white;">Your Cart Basket is empty !!</h2>
+      <h1 style="text-align: center; color: rgb(245, 52, 18);">Click Here</h1>
+      <a href="/shop"><h1 style="text-align: center;font-weight: bolder;color: #0661e9;"> continue shopping</h1></a>
+     <%}%>
+     
+
+
+
+    <%- include('../Includes/footer.ejs')%>
